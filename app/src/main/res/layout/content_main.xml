@@ -6,6 +6,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
+    android:background="@drawable/room"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:showIn="@layout/activity_main" tools:context=".MainActivity">
 
@@ -16,4 +17,51 @@
         android:id="@+id/textView"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:id="@+id/textView2"
+        android:layout_below="@+id/textView"
+        android:layout_alignParentStart="true" />
+
+    <com.example.sposkittmarshall.petsimulator2016.Views.SquareImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/petView"
+        android:layout_below="@+id/textView2"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="48dp" />
+
+    <ImageButton
+        android:layout_width="@dimen/box_size"
+        android:layout_height="@dimen/box_size"
+        android:id="@+id/foodButton"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:foreground="@drawable/foodicon"
+        android:src="@drawable/foodicon"
+        android:background="@drawable/buttonback" />
+
+    <ImageButton
+        android:layout_width="@dimen/box_size"
+        android:layout_height="@dimen/box_size"
+        android:id="@+id/fightButton"
+        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@+id/foodButton"
+        android:foreground="@drawable/fighticon"
+        android:background="@drawable/buttonback"
+        android:src="@drawable/fighticon" />
+
+    <ImageButton
+        android:layout_width="@dimen/box_size"
+        android:layout_height="@dimen/box_size"
+        android:id="@+id/toiletButton"
+        android:layout_alignBottom="@+id/fightButton"
+        android:layout_toEndOf="@+id/fightButton"
+        android:foreground="@drawable/toileticon"
+        android:background="@drawable/buttonback"
+        android:src="@drawable/toileticon" />
+
 </RelativeLayout>

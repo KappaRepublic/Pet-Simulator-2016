@@ -1,5 +1,10 @@
 package com.example.sposkittmarshall.petsimulator2016.Pets;
 
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
+import android.media.Image;
+
 /**
  *  Created by sposkittmarshall on 2016/03/15.
  *
@@ -13,10 +18,23 @@ public class BasePet
     protected String petName;
     protected String speciesName;
 
+    protected Context context;
+
     protected int health;     // If health reaches 0, the pet dies
     protected int strength;   // The pets strength, how much damage an attack does
     protected int defense;    // The pets defense, decreases how much damage the pet takes
     protected int speed;      // The pets speed, determines if the pet attacks first
+
+    protected Bitmap petImage; // The pet's image
+
+    public BasePet()
+    {
+    }
+
+    public BasePet(Context givenContext)
+    {
+        context = givenContext;
+    }
 
     // Getters and Setters
     public String getPetName()
@@ -49,6 +67,8 @@ public class BasePet
         return speed;
     }
 
+    public Bitmap getPetImage() { return petImage; }
+
     public void setPetName(String value)
     {
         petName = value;
@@ -78,4 +98,6 @@ public class BasePet
     {
         speed = value;
     }
+
+    public void setPetImage(Bitmap value) { petImage = value; }
 }

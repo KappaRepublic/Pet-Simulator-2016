@@ -2,7 +2,6 @@ package com.example.sposkittmarshall.petsimulator2016.Pets;
 
 import android.content.Context;
 import android.graphics.BitmapFactory;
-import android.graphics.drawable.BitmapDrawable;
 
 import com.example.sposkittmarshall.petsimulator2016.R;
 
@@ -14,20 +13,20 @@ import com.example.sposkittmarshall.petsimulator2016.R;
  *
  */
 
-public class Egg extends BasePet
+public class Bear extends BasePet
 {
 
-    public Egg(Context givenContext)
+    public Bear(Context givenContext)
     {
         context = givenContext;
         // Set up basic variables
-        speciesName = "Egg";
-        health = 5;
-        strength = 1;
-        defense = 1;
+        speciesName = "Bear";
+        health = 10;
+        strength = 3;
+        defense = 2;
         speed = 1;
 
-        petImage = BitmapFactory.decodeResource(context.getResources(), R.drawable.egg);
+        petImage = BitmapFactory.decodeResource(context.getResources(), R.drawable.bear);
     }
 
 }

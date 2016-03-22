@@ -1,6 +1,9 @@
 package com.example.sposkittmarshall.petsimulator2016.Player;
 
+import android.content.Context;
+
 import com.example.sposkittmarshall.petsimulator2016.Pets.BasePet;
+import com.example.sposkittmarshall.petsimulator2016.Pets.Bear;
 import com.example.sposkittmarshall.petsimulator2016.Pets.Egg;
 
 /**
@@ -12,11 +15,13 @@ import com.example.sposkittmarshall.petsimulator2016.Pets.Egg;
 public class PlayerInfo
 {
     // Variables
+    public String playerName;
     public BasePet currentPet;
 
-    public PlayerInfo()
+    public PlayerInfo(String givenPlayerName, Context givenContext)
     {
-        currentPet = new Egg();
+        playerName = givenPlayerName;
+        currentPet = new Bear(givenContext);
     }
 
 }
