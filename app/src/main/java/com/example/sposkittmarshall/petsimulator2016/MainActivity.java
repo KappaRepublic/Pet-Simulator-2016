@@ -9,6 +9,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.telephony.SmsManager;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -58,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
 
             alertDialogBuilder.setView(editText);
 
-            alertDialogBuilder.setCancelable(false).setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            alertDialogBuilder.setCancelable(false).setMessage("What is your name?").setPositiveButton("OK", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
                     SharedPreferences.Editor editor = prefs.edit();
@@ -88,9 +89,52 @@ public class MainActivity extends AppCompatActivity {
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View view)
+            {
+                DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        switch (which){
+                            case DialogInterface.BUTTON_POSITIVE:
+                                //Yes button clicked
+                                SmsManager smsManager = SmsManager.getDefault();
+                                smsManager.sendTextMessage("07462128328", null, "Hey, have I ever told you about my pet " + player.currentPet.getSpeciesName() + "? It's name is " + player.currentPet.getPetName() + " and it's better than your pet. Wanna prove me wrong? Get Pet Simulator 2016.", null, null);
+
+                                break;
+
+                            case DialogInterface.BUTTON_NEGATIVE:
+                                //No button clicked
+                                break;
+                        }
+                    }
+                };
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                builder.setMessage("The Pet Simualtor 2016 team feels obilagated to tell you that sending SMS costs money, and you may not have money. Are you sure you wannant to send an SMS?").setPositiveButton("Yes", dialogClickListener).setNegativeButton("No", dialogClickListener).show();
+
+                /*
+                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(getApplicationContext());
+                final EditText editText = new EditText(getApplicationContext());
+
+                alertDialogBuilder.setView(editText);
+
+                alertDialogBuilder.setCancelable(true).setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which)
+                    {
+                        SmsManager smsManager = SmsManager.getDefault();
+                        smsManager.sendTextMessage("", null, "Hey, have I ever told you about my pet " + player.currentPet.getSpeciesName() + "? It's name is " + player.currentPet.getPetName() + " and it's better than your pet. Wanna prove me wrong? Get Pet Simulator 2016.", null, null);
+                    }
+                });
+
+                AlertDialog alertDialog = alertDialogBuilder.create();
+
+                alertDialog.show();
+                */
+
                 Snackbar.make(view, "Wanna brag to a friend about your great pet?", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
+
             }
         });
     }

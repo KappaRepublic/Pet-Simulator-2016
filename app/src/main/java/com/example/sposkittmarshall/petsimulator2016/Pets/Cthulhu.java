@@ -13,21 +13,21 @@ import com.example.sposkittmarshall.petsimulator2016.R;
  *
  */
 
-public class Bear extends BasePet
+public class Cthulhu extends BasePet
 {
 
-    public Bear(Context givenContext)
+    public Cthulhu(Context givenContext)
     {
         context = givenContext;
         // Set up basic variables
-        speciesName = "Bear";
-        petName = "Beart";
+        speciesName = "Cthulhu";
+        petName = "Steve";
         health = 10;
         strength = 3;
         defense = 2;
         speed = 1;
 
-        petImage = BitmapFactory.decodeResource(context.getResources(), R.drawable.bear);
+        petImage = BitmapFactory.decodeResource(context.getResources(), R.drawable.cthulu);
     }
 
 }

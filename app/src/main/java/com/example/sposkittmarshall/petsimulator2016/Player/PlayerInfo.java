@@ -3,8 +3,7 @@ package com.example.sposkittmarshall.petsimulator2016.Player;
 import android.content.Context;
 
 import com.example.sposkittmarshall.petsimulator2016.Pets.BasePet;
-import com.example.sposkittmarshall.petsimulator2016.Pets.Bear;
-import com.example.sposkittmarshall.petsimulator2016.Pets.Egg;
+import com.example.sposkittmarshall.petsimulator2016.Pets.Cthulhu;
 
 /**
  *  Created by sposkittmarshall on 2016/03/15.
@@ -21,7 +20,7 @@ public class PlayerInfo
     public PlayerInfo(String givenPlayerName, Context givenContext)
     {
         playerName = givenPlayerName;
-        currentPet = new Bear(givenContext);
+        currentPet = new Cthulhu(givenContext);
     }
 
 }
