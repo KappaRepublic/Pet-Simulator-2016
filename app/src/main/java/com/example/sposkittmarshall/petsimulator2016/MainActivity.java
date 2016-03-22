@@ -2,6 +2,7 @@ package com.example.sposkittmarshall.petsimulator2016;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.Image;
 import android.os.Bundle;
@@ -97,8 +98,14 @@ public class MainActivity extends AppCompatActivity {
                         switch (which){
                             case DialogInterface.BUTTON_POSITIVE:
                                 //Yes button clicked
-                                SmsManager smsManager = SmsManager.getDefault();
-                                smsManager.sendTextMessage("07462128328", null, "Hey, have I ever told you about my pet " + player.currentPet.getSpeciesName() + "? It's name is " + player.currentPet.getPetName() + " and it's better than your pet. Wanna prove me wrong? Get Pet Simulator 2016.", null, null);
+
+                                Intent sendIntent = new Intent(Intent.ACTION_VIEW);
+                                sendIntent.putExtra("sms_body", "Hey, have I ever told you about my pet " + player.currentPet.getSpeciesName() + "? It's name is " + player.currentPet.getPetName() + " and it's better than your pet. Wanna prove me wrong? Get Pet Simulator 2016.");
+                                sendIntent.setType("vnd.android-dir/mms-sms");
+                                startActivity(sendIntent);
+
+                                //SmsManager smsManager = SmsManager.getDefault();
+                                //smsManager.sendTextMessage("07462128328", null, "Hey, have I ever told you about my pet " + player.currentPet.getSpeciesName() + "? It's name is " + player.currentPet.getPetName() + " and it's better than your pet. Wanna prove me wrong? Get Pet Simulator 2016.", null, null);
 
                                 break;
 
@@ -110,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
                 };
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-                builder.setMessage("The Pet Simualtor 2016 team feels obilagated to tell you that sending SMS costs money, and you may not have money. Are you sure you wannant to send an SMS?").setPositiveButton("Yes", dialogClickListener).setNegativeButton("No", dialogClickListener).show();
+                builder.setMessage("The Pet Simualtor 2016 team feels obilagated to tell you that sending SMS costs money, and you may not have money. Are you sure you want to send an SMS?").setPositiveButton("Yes", dialogClickListener).setNegativeButton("No", dialogClickListener).show();
 
                 /*
                 AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(getApplicationContext());

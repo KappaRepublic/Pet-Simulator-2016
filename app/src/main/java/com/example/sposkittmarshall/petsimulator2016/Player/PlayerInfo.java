@@ -4,6 +4,7 @@ import android.content.Context;
 
 import com.example.sposkittmarshall.petsimulator2016.Pets.BasePet;
 import com.example.sposkittmarshall.petsimulator2016.Pets.Cthulhu;
+import com.example.sposkittmarshall.petsimulator2016.Pets.FriedChicken;
 
 /**
  *  Created by sposkittmarshall on 2016/03/15.
@@ -20,7 +21,7 @@ public class PlayerInfo
     public PlayerInfo(String givenPlayerName, Context givenContext)
     {
         playerName = givenPlayerName;
-        currentPet = new Cthulhu(givenContext);
+        currentPet = new FriedChicken(givenContext);
     }
 
 }
